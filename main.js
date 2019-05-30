@@ -10,15 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const articleList = new ArticleList(container);
     const art = xhr.response;
     const close = document.querySelector('.close');
-    console.log(art)
     for (let i = 0; i < art.length; i++) {
       articleList.addArticle(new Article(art[i].title, art[i].author, art[i].text));
       articleList.render(new Article(art[i].title, art[i].author, art[i].text));
 
     }
-    // close.addEventListener('click', function(event) {
-    //   articleList.removeArticle();
-    //   console.log(event.target);
-    // });
+    document.addEventListener('click', function(event) {
+      articleList.removeArticle();
+      console.log(event.target.parentNode);
+    });
   };
 });
