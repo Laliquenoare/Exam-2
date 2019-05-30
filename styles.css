@@ -1,0 +1,35 @@
+
+div {
+  width: 600px;
+  margin: 0 auto;
+  text-align: justify;
+  background-color: #eee;
+  position: relative;
+}
+
+
+h1,h3 {
+  margin: 0 auto;
+  text-align: center;
+  width: 500px;
+  margin-bottom: 10px;
+}
+.close {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  content: '';
+  top: 10px;
+  right: 10px;  
+  z-index: 3;
+  background-color: rgb(180, 129, 129);
+  cursor: pointer;
+} 
+
+.close:hover {
+  background-color: rgb(223, 68, 68);
+}

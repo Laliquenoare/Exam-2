@@ -1,14 +1,24 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const requestURL = 'http://my-json-server.typicode.com/mate-academy/literary-blog/articles';
-  const request = new XMLHttpRequest();
-  request.open('GET', requestURL);
-  request.responseType = 'json';
-  request.send();
+  const xhr = new XMLHttpRequest();
+  xhr.open(`GET`, 'http://my-json-server.typicode.com/mate-academy/literary-blog/articles');
+  xhr.responseType = 'json';
+  xhr.send();
+  xhr.onload = function() {
+    const container = document.querySelector('#article-list');
+    const articleList = new ArticleList(container);
+    const art = xhr.response;
+    const close = document.querySelector('.close');
+    console.log(art)
+    for (let i = 0; i < art.length; i++) {
+      articleList.addArticle(new Article(art[i].title, art[i].author, art[i].text));
+      articleList.render(new Article(art[i].title, art[i].author, art[i].text));
 
-  request.onload = function() {
-    const art = request.response;
-
-  }
+    }
+    // close.addEventListener('click', function(event) {
+    //   articleList.removeArticle();
+    //   console.log(event.target);
+    // });
+  };
 });
