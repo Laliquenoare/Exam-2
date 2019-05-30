@@ -15,9 +15,5 @@ document.addEventListener('DOMContentLoaded', () => {
       articleList.render(new Article(art[i].title, art[i].author, art[i].text));
 
     }
-    document.addEventListener('click', function(event) {
-      articleList.removeArticle();
-      console.log(event.target.parentNode);
-    });
   };
 });

@@ -30,5 +30,9 @@ class ArticleList {
     articlesBlock.append(close);
 
     this.container.append(articlesBlock);
+    close.addEventListener('click', function() {
+      console.log(this.target);
+      // this.arr.splice(this.arr.indexOf(article), 1);
+    });
   }
 };
